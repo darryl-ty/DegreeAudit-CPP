@@ -10,17 +10,17 @@
 
 class Student {
 private:
-    short m_userIdentification;
+    int m_userIdentification;
     std::string m_userMajor;
     std::vector<std::string> m_userTranscript;
 
 public:
-    explicit Student(short userIdentification);
+    explicit Student(int userIdentification);
 
     void SetUserMajor(std::string inputMajor);
     void SetUserTranscript(std::vector<std::string> inputTranscript);
 
-    [[nodiscard]] short GetUserIdentification() const {return m_userIdentification;}
+    [[nodiscard]] int GetUserIdentification() const {return m_userIdentification;}
     std::string GetUserMajor() {return m_userMajor;}
     std::vector<std::string> GetUserTranscript() {return m_userTranscript;}
 

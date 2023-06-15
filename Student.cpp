@@ -4,7 +4,7 @@
 
 #include "Student.h"
 
-Student::Student(short userIdentification) {
+Student::Student(int userIdentification) {
     m_userIdentification = userIdentification;
     m_userMajor = nullptr;
 }
