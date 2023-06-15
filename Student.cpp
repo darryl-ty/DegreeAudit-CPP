@@ -3,3 +3,16 @@
 //
 
 #include "Student.h"
+
+Student::Student(short userIdentification) {
+    m_userIdentification = userIdentification;
+    m_userMajor = nullptr;
+}
+
+void Student::SetUserMajor(std::string inputMajor) {
+    m_userMajor = std::move(inputMajor);
+}
+
+void Student::SetUserTranscript(std::vector<std::string> inputTranscript) {
+    m_userTranscript = std::move(inputTranscript);
+}
