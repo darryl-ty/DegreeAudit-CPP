@@ -1,6 +1,7 @@
 #include <iostream>
 
-void startScreenArt(){
+void printTerminalArt(){
+    std::cout << "Welcome to the Degree Audit System!" << std::endl;
     std::cout
     << R"( _____   ______  ______  ______  ______  ______
 /\  __-./\  ___\/\  ___\/\  == \/\  ___\/\  ___\
@@ -18,8 +19,11 @@ void startScreenArt(){
     << std::endl;
 }
 
+void DegreeAudit(){
+    printTerminalArt();
+}
+
 
 int main() {
-    std::cout << "Welcome to the Degree Audit System!" << std::endl;
-    startScreenArt();
+    DegreeAudit();
 }

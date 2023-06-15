@@ -40,3 +40,17 @@
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-e34f8ad4c0ae531d7232.json
+/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-9ab3cc195606b11a60d4.json
+/cmake-build-debug/.cmake/api/v1/reply/target-DegreeAuditCPP-Debug-36baad6c68017537bd35.json
+/cmake-build-debug/CMakeFiles/DegreeAuditCPP.dir/embed.manifest
+/cmake-build-debug/CMakeFiles/DegreeAuditCPP.dir/intermediate.manifest
+/cmake-build-debug/CMakeFiles/DegreeAuditCPP.dir/main.cpp.obj
+/cmake-build-debug/CMakeFiles/DegreeAuditCPP.dir/manifest.rc
+/cmake-build-debug/CMakeFiles/DegreeAuditCPP.dir/manifest.res
+/cmake-build-debug/CMakeFiles/DegreeAuditCPP.dir/vc140.pdb
+/cmake-build-debug/.ninja_deps
+/cmake-build-debug/.ninja_log
+/cmake-build-debug/DegreeAuditCPP.exe
+/cmake-build-debug/DegreeAuditCPP.ilk
+/cmake-build-debug/DegreeAuditCPP.pdb
