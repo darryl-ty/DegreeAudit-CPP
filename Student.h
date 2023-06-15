@@ -1,9 +1,9 @@
 //
-// Created by Darryl Terrell Jr on 6/14/2023.
+// Created by darryl-ty on 6/14/2023.
 //
 
-#ifndef DEGREEAUDITCPP_STUDENT_H
-#define DEGREEAUDITCPP_STUDENT_H
+#ifndef STUDENT_H
+#define STUDENT_H
 
 
 class Student {
@@ -11,4 +11,4 @@ class Student {
 };
 
 
-#endif //DEGREEAUDITCPP_STUDENT_H
+#endif //STUDENT_H
