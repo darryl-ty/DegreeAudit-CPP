@@ -6,7 +6,6 @@
 
 StudentInfo::StudentInfo(int userIdentification) {
     m_userIdentification = userIdentification;
-    m_userMajor = nullptr;
 }
 
 void StudentInfo::SetUserMajor(std::string inputMajor) {
