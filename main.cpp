@@ -22,27 +22,31 @@ void PrintTerminalArt(){
     << std::endl;
 }
 
-int TryParseInt(std::string *inputStr);
+StudentInfo TryParseInt(std::string *inputStr);
 StudentInfo UserInput();
 
 
-int TryParseInt(std::string *inputStr) {
+StudentInfo TryParseInt(std::string *inputStr) {
     int convertedNum;
 
     if(inputStr->length() != 9) {
         std::cout << "Invalid 900 number length. Please try again\n" << std::endl;
-        return TryParseInt(inputStr);
+        return UserInput();
     }
 
     try{
         convertedNum = std::stoi(*inputStr);
+        if(inputStr->length() != std::to_string(convertedNum).length()){
+            std::cout << "Invalid 900 number. Please try again.\n" << std::endl;
+            return UserInput();
+        }
     }
     catch (const std::invalid_argument&){
         std::cout << "Invalid 900 number. Please try again.\n" << std::endl;
-        return TryParseInt(inputStr);
+        return UserInput();
     }
 
-    return convertedNum;
+    return StudentInfo(convertedNum);
 }
 
 StudentInfo UserInput() {
@@ -50,7 +54,7 @@ StudentInfo UserInput() {
     std::cout << "Please input your XULA 900 number: ";
     std::cin >> inputStudentNumber;
 
-    return StudentInfo(TryParseInt(&inputStudentNumber));
+    return TryParseInt(&inputStudentNumber);
 }
 
 void DegreeAudit(){
