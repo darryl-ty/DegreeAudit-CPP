@@ -8,14 +8,14 @@
 #include <string>
 #include <vector>
 
-class Student {
+class StudentInfo {
 private:
     int m_userIdentification;
     std::string m_userMajor;
     std::vector<std::string> m_userTranscript;
 
 public:
-    explicit Student(int userIdentification);
+    explicit StudentInfo(int userIdentification);
 
     void SetUserMajor(std::string inputMajor);
     void SetUserTranscript(std::vector<std::string> inputTranscript);
