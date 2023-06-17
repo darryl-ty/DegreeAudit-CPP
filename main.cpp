@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "StudentInfo.h"
 
 void PrintTerminalArt(){
@@ -21,6 +22,9 @@ void PrintTerminalArt(){
 }
 
 StudentInfo UserInput() {
+    std::string inputStudentNumber;
+    std::cout << "Please input your XULA 900 number: ";
+    std::cin >> inputStudentNumber;
 
 }
 
