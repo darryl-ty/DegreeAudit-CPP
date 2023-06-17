@@ -1,6 +1,7 @@
 #include <iostream>
+#include "StudentInfo.h"
 
-void printTerminalArt(){
+void PrintTerminalArt(){
     std::cout << "Welcome to the Degree Audit System!" << std::endl;
     std::cout
     << R"( _____   ______  ______  ______  ______  ______
@@ -19,8 +20,13 @@ void printTerminalArt(){
     << std::endl;
 }
 
+StudentInfo UserInput() {
+
+}
+
 void DegreeAudit(){
-    printTerminalArt();
+    PrintTerminalArt();
+    UserInput();
 }
 
 
