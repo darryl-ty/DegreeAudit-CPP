@@ -2,6 +2,7 @@
 #include <string>
 #include "StudentInfo.h"
 
+
 void PrintTerminalArt(){
     std::cout << "Welcome to the Degree Audit System!" << std::endl;
     std::cout
@@ -21,16 +22,41 @@ void PrintTerminalArt(){
     << std::endl;
 }
 
+StudentInfo TryParseInt(std::string *inputStr);
+StudentInfo UserInput();
+
+
+StudentInfo TryParseInt(std::string *inputStr) {
+    int convertedNum;
+
+    if(inputStr->length() != 9) {
+        std::cout << "Invalid 900 number length. Please try again\n" << std::endl;
+        return UserInput();
+    }
+
+    try{
+        convertedNum = std::stoi(*inputStr);
+    }
+    catch (...){
+        std::cout << "Invalid 900 number. Please try again.\n" << std::endl;
+        return UserInput();
+    }
+
+    return StudentInfo(convertedNum);
+}
+
 StudentInfo UserInput() {
     std::string inputStudentNumber;
     std::cout << "Please input your XULA 900 number: ";
     std::cin >> inputStudentNumber;
 
+    return TryParseInt(&inputStudentNumber);
 }
 
 void DegreeAudit(){
     PrintTerminalArt();
-    UserInput();
+    StudentInfo student = UserInput();
+    std::cout << "Here is your student number: " << student.GetUserIdentification();
 }
 
 
