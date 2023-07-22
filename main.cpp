@@ -3,20 +3,16 @@
 #include <filesystem>
 #include "StudentInfo.h"
 
+void DegreeAudit();
 void PrintTerminalArt();
 void CreateTranscriptPath();
-void DegreeAudit();
 
-StudentInfo TryParseInt(std::string *inputStr);
 StudentInfo UserInput();
+StudentInfo TryParseInt(std::string *inputStr);
 
 
 int main() {
     DegreeAudit();
-}
-
-void CreateTranscriptPath() {
-
 }
 
 void DegreeAudit() {
@@ -46,6 +42,14 @@ void PrintTerminalArt() {
             << std::endl;
 }
 
+StudentInfo UserInput() {
+    std::string inputStudentNumber;
+    std::cout << "Please input your XULA 900 number: ";
+    std::cin >> inputStudentNumber;
+
+    return TryParseInt(&inputStudentNumber);
+}
+
 StudentInfo TryParseInt(std::string *inputStr) {
     int convertedNum;
 
@@ -69,10 +73,6 @@ StudentInfo TryParseInt(std::string *inputStr) {
     return StudentInfo(convertedNum);
 }
 
-StudentInfo UserInput() {
-    std::string inputStudentNumber;
-    std::cout << "Please input your XULA 900 number: ";
-    std::cin >> inputStudentNumber;
+void CreateTranscriptPath() {
 
-    return TryParseInt(&inputStudentNumber);
 }
