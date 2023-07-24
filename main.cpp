@@ -10,6 +10,8 @@ void CreateTranscriptPath();
 StudentInfo UserInput();
 StudentInfo TryParseInt(std::string *inputStr);
 
+std::filesystem::path AssembleTranscriptPath();
+
 
 int main() {
     DegreeAudit();
@@ -74,5 +76,12 @@ StudentInfo TryParseInt(std::string *inputStr) {
 }
 
 void CreateTranscriptPath() {
+    std::filesystem::path creationPath = AssembleTranscriptPath();
+    std::filesystem::create_directory(creationPath);
+}
 
+std::filesystem::path AssembleTranscriptPath() {
+    std::filesystem::path transcriptPath = std::filesystem::u8path("/transcript");
+    std::filesystem::path creationPath = std::filesystem::current_path().parent_path() += transcriptPath;
+    return creationPath;
 }
