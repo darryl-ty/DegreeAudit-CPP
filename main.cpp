@@ -76,8 +76,7 @@ StudentInfo TryParseInt(std::string *inputStr) {
 }
 
 void CreateTranscriptPath() {
-    std::filesystem::path finalPath = AssembleTranscriptPath();
-    std::filesystem::create_directory(finalPath);
+    std::filesystem::create_directory(AssembleTranscriptPath());
 }
 
 std::filesystem::path AssembleTranscriptPath() {
