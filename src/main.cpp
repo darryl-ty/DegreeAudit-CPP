@@ -3,29 +3,29 @@
 #include <filesystem>
 #include "StudentInfo.h"
 
-void DegreeAudit();
-void PrintTerminalArt();
-void CreateTranscriptPath();
+void degreeAudit();
+void printTerminalArt();
+void createTranscriptPath();
 
-StudentInfo UserInput();
-StudentInfo TryParseInt(std::string *inputStr);
+StudentInfo userInput();
+StudentInfo tryParseInt(std::string *inputStr);
 
-std::filesystem::path AssembleTranscriptPath();
+std::filesystem::path assembleTranscriptPath();
 
 
 int main() {
-    DegreeAudit();
+    degreeAudit();
 }
 
-void DegreeAudit() {
-    PrintTerminalArt();
-    StudentInfo student = UserInput();
+void degreeAudit() {
+    printTerminalArt();
+    StudentInfo student = userInput();
     std::cout << "Here is your student number: " << student.GetUserIdentification();
 
-    CreateTranscriptPath();
+    createTranscriptPath();
 }
 
-void PrintTerminalArt() {
+void printTerminalArt() {
     std::cout << "Welcome to the Degree Audit System!" << std::endl;
     std::cout
             << R"( _____   ______  ______  ______  ______  ______
@@ -44,42 +44,42 @@ void PrintTerminalArt() {
             << std::endl;
 }
 
-StudentInfo UserInput() {
+StudentInfo userInput() {
     std::string inputStudentNumber;
     std::cout << "Please input your XULA 900 number: ";
     std::cin >> inputStudentNumber;
 
-    return TryParseInt(&inputStudentNumber);
+    return tryParseInt(&inputStudentNumber);
 }
 
-StudentInfo TryParseInt(std::string *inputStr) {
+StudentInfo tryParseInt(std::string *inputStr) {
     int convertedNum;
 
     if(inputStr->length() != 9) {
         std::cout << "Invalid 900 number length. Please try again\n" << std::endl;
-        return UserInput();
+        return userInput();
     }
 
     try{
         convertedNum = std::stoi(*inputStr);
         if(inputStr->length() != std::to_string(convertedNum).length()){
             std::cout << "Invalid 900 number. Please try again.\n" << std::endl;
-            return UserInput();
+            return userInput();
         }
     }
     catch (const std::invalid_argument&){
         std::cout << "Invalid 900 number. Please try again.\n" << std::endl;
-        return UserInput();
+        return userInput();
     }
 
     return StudentInfo(convertedNum);
 }
 
-void CreateTranscriptPath() {
-    std::filesystem::create_directory(AssembleTranscriptPath());
+void createTranscriptPath() {
+    std::filesystem::create_directory(assembleTranscriptPath());
 }
 
-std::filesystem::path AssembleTranscriptPath() {
+std::filesystem::path assembleTranscriptPath() {
     std::filesystem::path transcriptPath = std::filesystem::u8path("/transcript");
     std::filesystem::path creationPath = std::filesystem::current_path().parent_path() += transcriptPath;
     return creationPath;
