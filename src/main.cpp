@@ -5,6 +5,7 @@
 
 void degreeAudit();
 void printTerminalArt();
+void studentInput();
 void createTranscriptPath();
 
 StudentInfo userInput();
@@ -16,11 +17,9 @@ std::filesystem::path assembleTranscriptPath();
 int main() {
     degreeAudit();
 }
-
 void degreeAudit() {
     printTerminalArt();
-    StudentInfo student = userInput();
-    std::cout << "Here is your student number: " << student.GetUserIdentification();
+    studentInput();
 
     createTranscriptPath();
 }
@@ -43,6 +42,12 @@ void printTerminalArt() {
   \/_/\/_/\/_____/\/____/ \/_/  \/_/ )"
             << std::endl;
 }
+
+void studentInput() {
+    StudentInfo student = userInput();
+    std::cout << "Here is your student number: " << student.GetUserIdentification();
+}
+
 
 StudentInfo userInput() {
     std::string inputStudentNumber;
@@ -76,7 +81,11 @@ StudentInfo tryParseInt(std::string *inputStr) {
 }
 
 void createTranscriptPath() {
-    std::filesystem::create_directory(assembleTranscriptPath());
+    if (std::filesystem::create_directory(assembleTranscriptPath())){
+
+    } else {
+
+    }
 }
 
 std::filesystem::path assembleTranscriptPath() {
