@@ -81,11 +81,10 @@ StudentInfo tryParseInt(std::string *inputStr) {
 }
 
 void createTranscriptPath() {
-    if (std::filesystem::create_directory(assembleTranscriptPath())){
-
-    } else {
-
+    if (std::filesystem::exists(std::filesystem::current_path().parent_path() += std::filesystem::u8path("/transcript"))){
+        return;
     }
+    std::filesystem::create_directory(assembleTranscriptPath());
 }
 
 std::filesystem::path assembleTranscriptPath() {
