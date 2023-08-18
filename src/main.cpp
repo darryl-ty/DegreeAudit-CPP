@@ -6,10 +6,11 @@
 
 void degreeAudit();
 void printTerminalArt();
-void studentInput();
 void createAuditPaths();
 void createPath(const std::string&);
+void checkForStudentTranscript(const StudentInfo&);
 
+StudentInfo studentInput();
 StudentInfo userInput();
 StudentInfo tryParseInt(std::string *inputStr);
 
@@ -21,9 +22,12 @@ int main() {
 }
 void degreeAudit() {
     printTerminalArt();
-    studentInput();
+    StudentInfo student = studentInput();
 
     createAuditPaths();
+
+    checkForStudentTranscript(student);
+
 }
 
 void printTerminalArt() {
@@ -45,9 +49,11 @@ void printTerminalArt() {
             << std::endl;
 }
 
-void studentInput() {
+StudentInfo studentInput() {
     StudentInfo student = userInput();
     std::cout << "Here is your student number: " << student.GetUserIdentification();
+
+    return student;
 }
 
 
@@ -59,7 +65,7 @@ StudentInfo userInput() {
     return tryParseInt(&inputStudentNumber);
 }
 
-StudentInfo tryParseInt(std::string *inputStr) {
+StudentInfo tryParseInt(std::string* inputStr) {
     int convertedNum;
 
     if(inputStr->length() != 9) {
@@ -91,15 +97,21 @@ void createAuditPaths(){
     creation("Curriculum");
 }
 
-void createPath(const std::string &pathToCreate) {
+void createPath(const std::string& pathToCreate) {
     if (std::filesystem::exists(std::filesystem::current_path().parent_path() += std::filesystem::u8path("/" + pathToCreate))){
         return;
     }
     std::filesystem::create_directory(assemblePath(pathToCreate));
 }
 
-std::filesystem::path assemblePath(const std::string &pathToCreate) {
+std::filesystem::path assemblePath(const std::string& pathToCreate) {
+    std::cout << pathToCreate << std::endl;
+    std::cout << &pathToCreate << std::endl;
     std::filesystem::path path = std::filesystem::u8path("/" + pathToCreate);
     std::filesystem::path creationPath = std::filesystem::current_path().parent_path() += path;
     return creationPath;
+}
+
+void checkForStudentTranscript(const StudentInfo& student){
+
 }
