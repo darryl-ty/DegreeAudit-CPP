@@ -12,7 +12,7 @@ void checkForStudentTranscript(const StudentInfo&);
 
 StudentInfo studentInput();
 StudentInfo userInput();
-StudentInfo tryParseInt(std::string *inputStr);
+StudentInfo tryParseInt(const std::string& inputStr);
 
 std::filesystem::path assemblePath(const std::string&);
 
@@ -62,20 +62,20 @@ StudentInfo userInput() {
     std::cout << "Please input your XULA 900 number: ";
     std::cin >> inputStudentNumber;
 
-    return tryParseInt(&inputStudentNumber);
+    return tryParseInt(inputStudentNumber);
 }
 
-StudentInfo tryParseInt(std::string* inputStr) {
+StudentInfo tryParseInt(const std::string& inputStr) {
     int convertedNum;
 
-    if(inputStr->length() != 9) {
+    if(inputStr.length() != 9) {
         std::cout << "Invalid 900 number length. Please try again\n" << std::endl;
         return userInput();
     }
 
     try{
-        convertedNum = std::stoi(*inputStr);
-        if(inputStr->length() != std::to_string(convertedNum).length()){
+        convertedNum = std::stoi(inputStr);
+        if(inputStr.length() != std::to_string(convertedNum).length()){
             std::cout << "Invalid 900 number. Please try again.\n" << std::endl;
             return userInput();
         }
@@ -105,8 +105,6 @@ void createPath(const std::string& pathToCreate) {
 }
 
 std::filesystem::path assemblePath(const std::string& pathToCreate) {
-    std::cout << pathToCreate << std::endl;
-    std::cout << &pathToCreate << std::endl;
     std::filesystem::path path = std::filesystem::u8path("/" + pathToCreate);
     std::filesystem::path creationPath = std::filesystem::current_path().parent_path() += path;
     return creationPath;
