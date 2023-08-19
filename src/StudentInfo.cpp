@@ -4,14 +4,14 @@
 
 #include "StudentInfo.h"
 
-StudentInfo::StudentInfo(int userIdentification) {
+StudentInfo::StudentInfo(std::string userIdentification) {
     m_userIdentification = userIdentification;
 }
 
-void StudentInfo::SetUserMajor(std::string inputMajor) {
+void StudentInfo::setUserMajor(std::string inputMajor) {
     m_userMajor = std::move(inputMajor);
 }
 
-void StudentInfo::SetUserTranscript(std::vector<std::string> inputTranscript) {
+void StudentInfo::setUserTranscript(std::vector<std::string> inputTranscript) {
     m_userTranscript = std::move(inputTranscript);
 }

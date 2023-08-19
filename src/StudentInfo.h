@@ -10,19 +10,19 @@
 
 class StudentInfo {
 private:
-    int m_userIdentification;
+    std::string m_userIdentification;
     std::string m_userMajor;
     std::vector<std::string> m_userTranscript;
 
 public:
-    explicit StudentInfo(int userIdentification);
+    explicit StudentInfo(std::string userIdentification);
 
-    void SetUserMajor(std::string inputMajor);
-    void SetUserTranscript(std::vector<std::string> inputTranscript);
+    void setUserMajor(std::string inputMajor);
+    void setUserTranscript(std::vector<std::string> inputTranscript);
 
-    [[nodiscard]] int GetUserIdentification() const {return m_userIdentification;}
-    std::string GetUserMajor() {return m_userMajor;}
-    std::vector<std::string> GetUserTranscript() {return m_userTranscript;}
+    [[nodiscard]] std::string getUserIdentification() const {return m_userIdentification;}
+    std::string getUserMajor() {return m_userMajor;}
+    std::vector<std::string> getUserTranscript() {return m_userTranscript;}
 
 
 };
