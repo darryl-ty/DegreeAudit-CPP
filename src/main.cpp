@@ -51,11 +51,10 @@ void printTerminalArt() {
 
 StudentInfo studentInput() {
     StudentInfo student = userInput();
-    std::cout << "Here is your student number: " << student.GetUserIdentification();
+//    std::cout << "Here is your student number: " << student.getUserIdentification();
 
     return student;
 }
-
 
 StudentInfo userInput() {
     std::string inputStudentNumber;
@@ -85,7 +84,7 @@ StudentInfo tryParseInt(const std::string& inputStr) {
         return userInput();
     }
 
-    return StudentInfo(convertedNum);
+    return StudentInfo(inputStr);
 }
 
 void createAuditPaths(){
@@ -111,5 +110,12 @@ std::filesystem::path assemblePath(const std::string& pathToCreate) {
 }
 
 void checkForStudentTranscript(const StudentInfo& student){
+    for (auto const& file : std::filesystem::directory_iterator(std::filesystem::current_path().parent_path() += "\\Transcripts")){
+        if (std::filesystem::path(file).filename().u8string() == (student.getUserIdentification() + ".txt")){
+            std::cout << "Transcript found!" << std::endl;
+        } else {
+            std::cout << "No student transcript found! Would you like to upload a transcript?\nY/n?" << std::endl;
+        }
+    }
 
 }
